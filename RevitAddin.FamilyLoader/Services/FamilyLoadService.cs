@@ -32,7 +32,7 @@ namespace RevitAddin.FamilyLoader.Services
 
             if (!File.Exists(filePath))
             {
-                throw new FileNotFoundException("File not found", filePath);
+                throw new FileNotFoundException("File not found", fileName);
             }
 
             var name = Path.GetFileNameWithoutExtension(filePath);
