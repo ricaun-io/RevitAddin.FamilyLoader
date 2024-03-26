@@ -1,0 +1,45 @@
+﻿<Window x:Class="RevitAddin.FamilyLoader.Views.FamilyLoaderView"
+        d:DataContext="{d:DesignInstance Type=vms:FamilyLoaderViewModel}"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RevitAddin.FamilyLoader.Views"
+        xmlns:vms="clr-namespace:RevitAddin.FamilyLoader.ViewModels"
+        xmlns:converters="clr-namespace:RevitAddin.FamilyLoader.Views.Converters"
+        Title="{Binding Title}"
+        Icon="{Binding Icon}"
+        Background="WhiteSmoke"
+        mc:Ignorable="d">
+
+    <Window.Resources>
+        <converters:StringToImageConverter x:Key="StringToImageConverter" />
+    </Window.Resources>
+
+    <StackPanel Margin="15">
+        <ListBox Height="260"
+                 Width="260"
+                 Margin="0 0 0 8"
+                 SelectedItem="{Binding SelectedModel}"
+                 ItemsSource="{Binding Models}">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <StackPanel.InputBindings>
+                            <MouseBinding Gesture="LeftDoubleClick"
+                                          Command="{Binding DataContext.Command, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Window}}, Mode=OneWay}"
+                                          CommandParameter="{Binding }" />
+                        </StackPanel.InputBindings>
+                        <Image Source="{Binding Image, Converter={StaticResource StringToImageConverter}}" Height="64" Width="64"/>
+                        <StackPanel Margin="4" VerticalAlignment="Center">
+                            <TextBlock Text="{Binding Name}"></TextBlock>
+                            <TextBlock Text="{Binding Symbol}"></TextBlock>
+                        </StackPanel>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <Button Height="24"
+                Command="{Binding Command}">Load and Place</Button>
+    </StackPanel>
+</Window>

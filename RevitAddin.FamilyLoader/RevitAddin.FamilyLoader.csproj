@@ -138,6 +138,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Family\Family-0.png" />
+    <None Remove="Family\Family-1.png" />
+    <None Remove="Family\Family-2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="ricaun.Revit.UI" Version="*" />
     <PackageReference Include="ricaun.Revit.Mvvm" Version="*" />
   </ItemGroup>
@@ -148,6 +154,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Family\Family-0.png" />
+    <Resource Include="Family\Family-1.png" />
+    <Resource Include="Family\Family-2.png" />
     <Resource Include="Resources\Revit.ico" />
   </ItemGroup>
 
@@ -165,6 +174,7 @@
 
   <ItemGroup>
     <PackageReference Include="Revit_All_Main_Versions_API_x64" Version="$(RevitVersion).*-*" IncludeAssets="build; compile" PrivateAssets="All" />
+    <PackageReference Include="ricaun.Revit.UI.Tasks" Version="1.0.0" />
   </ItemGroup>
 
   <ItemGroup>
