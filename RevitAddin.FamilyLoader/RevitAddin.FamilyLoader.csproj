@@ -111,7 +111,7 @@
 
   <PropertyGroup>
     <PackageId>RevitAddin.FamilyLoader</PackageId>
-    <Version>1.0.0-alpha</Version>
+    <Version>1.0.0-alpha.1</Version>
     <ProjectGuid>{A0BC6FD3-241A-4166-A0FD-2CC87C20DE35}</ProjectGuid>
   </PropertyGroup>
 

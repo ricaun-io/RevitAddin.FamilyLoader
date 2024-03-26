@@ -20,7 +20,7 @@ namespace RevitAddin.FamilyLoader.ViewModels
         #region Public Properties
         public ObservableCollection<FamilyLoaderModel> Models { get; } = new();
         public FamilyLoaderModel SelectedModel { get; set; }
-        public IAsyncRelayCommand Command => new AsyncRelayCommand(CommandLoadAndPlace, CanLoadAndPlace);
+        public IAsyncRelayCommand Command => new AsyncRelayCommand(ExecuteLoadAndPlace, CanLoadAndPlace);
 
         #endregion
 
@@ -61,7 +61,7 @@ namespace RevitAddin.FamilyLoader.ViewModels
         #endregion
 
         #region Private Methods
-        private async Task CommandLoadAndPlace()
+        private async Task ExecuteLoadAndPlace()
         {
             try
             {
